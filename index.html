@@ -1,116 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyberwave Security | EDR & Network Defence</title>
-  <meta name="description" content="Cyberwave Security provides proactive EDR, network security, and threat intelligence solutions for modern businesses." />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="page">
-    <header>
-      <div class="nav">
-        <div class="brand">
-          <div class="brand-icon">CW</div>
-          <div>
-            <div class="brand-title">Cyberwave Security</div>
-            <div class="brand-sub">EDR • Network Defence • Threat Intel</div>
-          </div>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-        <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Secured</button>
-      </div>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Cyberwave Security Ltd - Proactive EDR & Network Defence Solutions</title>
+    <meta name="description" content="Next-generation endpoint and network security solutions. Expert EDR deployment, 24/7 monitoring, and threat response at just $1 per endpoint. UK-based cybersecurity specialists." />
+    <meta name="author" content="Cyberwave Security Ltd" />
 
-    <main>
-      <section class="hero" id="top">
-        <div>
-          <span class="eyebrow">UK-Based Cyber Defence · Since 2025</span>
-          <h1 class="hero-title">Proactive EDR & Network Security.</h1>
-          <p>We help organisations in the UK detect, contain, and prevent cyber threats using enterprise-grade endpoint and network security, backed by threat intelligence.</p>
-          <div class="hero-actions">
-            <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Assessment</button>
-            <button class="ghost-btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">View solutions</button>
-          </div>
-        </div>
+    <meta property="og:title" content="Cyberwave Security Ltd - Proactive EDR & Network Defence" />
+    <meta property="og:description" content="Next-generation endpoint and network security solutions. Expert EDR deployment, 24/7 monitoring, and threat response at just $1 per endpoint." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-        <div class="hero-panel" aria-label="Cyber security live stats">
-          <div class="hero-metric">
-            <div>
-              <strong>EDR Coverage</strong><br />
-              <small>Endpoints protected</small>
-            </div>
-            <span style="font-weight:700;font-size:1.4rem;">245</span>
-          </div>
-          <div class="hero-metric">
-            <div>
-              <strong>Network Sensors</strong><br />
-              <small>Active IDS/IPS & SO monitoring</small>
-            </div>
-            <span style="font-weight:700;font-size:1.15rem;">Security Onion</span>
-          </div>
-          <p class="muted">Real-time visibility across endpoints and networks. Tuned detections for ransomware, lateral movement, and identity abuse.</p>
-          <div class="hero-glow" aria-hidden="true"></div>
-        </div>
-      </section>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-      <section id="services">
-        <h2 class="section-title">Our Security Solutions</h2>
-        <p class="muted intro">Built for SMEs, public sector, and growing enterprises in the UK. We design our services to be transparent, measurable, and aligned to MITRE ATT&CK.</p>
-        <div class="services">
-          <article class="service-card">
-            <div class="service-icon">EDR</div>
-            <h3 class="service-title">Endpoint Detection & Response</h3>
-            <p class="service-text">Deploy, tune, and manage EDR platforms to stop threats at the endpoint. Includes behavioural rules, alert triage, and response playbooks.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">NET</div>
-            <h3 class="service-title">Network Security & Monitoring</h3>
-            <p class="service-text">NGFW, IDS/IPS, and Security Onion deployments for full packet visibility, anomaly detection, and intrusion prevention.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">TI</div>
-            <h3 class="service-title">Threat Intelligence</h3>
-            <p class="service-text">Enriched IOCs, actor profiling, and ATT&CK mapping to prioritise what actually targets your sector.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">IR</div>
-            <h3 class="service-title">Incident Response Readiness</h3>
-            <p class="service-text">Playbooks, log retention, and forensics workflows to help your team respond confidently when an alert fires.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="about">
-        <h2 class="section-title">About Cyberwave Security</h2>
-        <p class="muted about-text">Cyberwave Security Ltd is a UK-based cybersecurity practice focused on proactive defence. We combine EDR, network telemetry, and threat intel to give organisations real visibility over their environments. Whether you run VMware labs, mixed Windows/Linux, or cloud workloads, we can instrument and defend it.</p>
-      </section>
-
-      <section id="contact">
-        <h2 class="section-title">Request a Security Assessment</h2>
-        <p class="muted contact-intro">Tell us about your environment — endpoints, cloud, and network — and we will propose an EDR + network security stack that fits your size and budget.</p>
-        <form class="contact-form">
-          <input type="text" placeholder="Full name" required>
-          <input type="email" placeholder="Business email" required>
-          <input type="text" placeholder="Company / Organisation">
-          <textarea rows="4" placeholder="What do you want to secure? (Endpoints, network, SOC, IR...)"></textarea>
-          <button class="cta-btn" type="submit">Send request</button>
-        </form>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div>© <span id="year"></span> Cyberwave Security Ltd · UK Based · EDR & Network Defence</div>
-      <div>contact@cyberwavesecurity.co.uk</div>
-    </footer>
-  </div>
-  <script src="script.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+
