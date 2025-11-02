@@ -134,7 +134,7 @@ const About = () => {
                   <h3 className="text-xl font-semibold mb-3 text-primary">Framework Alignment</h3>
                   <p className="text-muted-foreground">
                     All our threat intelligence and reporting aligns with industry-standard frameworks including 
-                    MITRE ATT&CK, Cyber Essentials, SOC2 and ISO/IEC 27001, ensuring compatibility with your compliance requirements.
+                    MITRE ATT&CK, Cyber Essentials, and ISO/IEC 27001, ensuring compatibility with your compliance requirements.
                   </p>
                 </div>
 
