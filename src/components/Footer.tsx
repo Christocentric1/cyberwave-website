@@ -73,13 +73,13 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:contact@cyberwavesecurity.co.uk" className="hover:text-primary transition-colors">
-                  contact@cyberwavesecurity.co.uk
+                <a href="mailto:info@cyberwavesecurity.co.uk" className="hover:text-primary transition-colors">
+                  info@cyberwavesecurity.co.uk
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+44 (0) 20 XXXX XXXX</span>
+                <span>+44 (0) 7307101571</span>
               </li>
             </ul>
           </div>
