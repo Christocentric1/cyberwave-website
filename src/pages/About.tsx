@@ -44,8 +44,7 @@ const About = () => {
               About <span className="text-primary">Cyberwave Security</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              UK-based cybersecurity specialists protecting organisations with next-generation 
-              endpoint and network security solutions
+              To make cybersecurity accessible, affordable, and effective for all organisations, regardless of size or funding capacity.
             </p>
           </div>
         </div>
