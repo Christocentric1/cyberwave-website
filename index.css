@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Black Theme - Pure Black + Electric Cyan + Vivid Blue */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Vivid electric blue primary */
+    --primary: 210 100% 60%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Electric cyan accent */
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.875rem;
+
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 60%) 0%, hsl(180, 100%, 50%) 100%);
+    --gradient-radial: radial-gradient(circle at top, hsl(210, 100%, 60%, 0.15) 0%, transparent 50%);
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(210, 100%, 60%, 0.3) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(180, 100%, 50%, 0.2) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(210, 100%, 60%, 0.2) 0px, transparent 50%);
+    
+    /* Enhanced glows */
+    --glow-primary: 0 0 60px hsl(210, 100%, 60%, 0.6), 0 0 100px hsl(210, 100%, 60%, 0.3);
+    --glow-accent: 0 0 60px hsl(180, 100%, 50%, 0.6), 0 0 100px hsl(180, 100%, 50%, 0.3);
+    --glow-subtle: 0 0 30px hsl(210, 100%, 60%, 0.2);
+    --shadow-premium: 0 25px 50px -12px hsl(0, 0%, 0%, 0.8), 0 0 80px hsl(210, 100%, 60%, 0.15);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Premium network grid */
+  .network-grid {
+    background-image: 
+      linear-gradient(hsl(0, 0%, 15%, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0, 0%, 15%, 0.4) 1px, transparent 1px);
+    background-size: 60px 60px;
+    position: relative;
+  }
+
+  .network-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* Premium glow effects */
+  .cyber-glow {
+    box-shadow: var(--glow-primary);
+    transition: var(--transition-smooth);
+  }
+
+  .cyber-glow:hover {
+    box-shadow: 0 0 80px hsl(210, 100%, 60%, 0.7), 0 0 120px hsl(210, 100%, 60%, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .accent-glow {
+    box-shadow: var(--glow-accent);
+    transition: var(--transition-smooth);
+  }
+
+  .accent-glow:hover {
+    box-shadow: 0 0 80px hsl(180, 100%, 50%, 0.7), 0 0 120px hsl(180, 100%, 50%, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Animated border */
+  @keyframes border-glow {
+    0%, 100% {
+      border-color: hsl(210, 100%, 60%, 0.5);
+    }
+    50% {
+      border-color: hsl(180, 100%, 50%, 0.5);
+    }
+  }
+
+  .animated-border {
+    animation: border-glow 3s ease-in-out infinite;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 40px hsl(210, 100%, 60%, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 80px hsl(210, 100%, 60%, 0.8), 0 0 120px hsl(180, 100%, 50%, 0.4);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+
