@@ -68,10 +68,10 @@ const Contact = () => {
                   </div>
                   <h3 className="font-semibold">Email Us</h3>
                   <a 
-                    href="mailto:contact@cyberwavesecurity.co.uk" 
+                    href="mailto:info@cyberwavesecurity.co.uk" 
                     className="text-muted-foreground hover:text-primary transition-colors block"
                   >
-                    contact@cyberwavesecurity.co.uk
+                    info@cyberwavesecurity.co.uk
                   </a>
                 </CardContent>
               </Card>
@@ -83,7 +83,7 @@ const Contact = () => {
                     <div className="absolute inset-0 bg-accent/20 blur-xl" />
                   </div>
                   <h3 className="font-semibold">Call Us</h3>
-                  <p className="text-muted-foreground">+44 (0) 20 XXXX XXXX</p>
+                  <p className="text-muted-foreground">+44 (0) 7307101571</p>
                   <p className="text-sm text-muted-foreground">Mon-Fri, 9am-6pm GMT</p>
                 </CardContent>
               </Card>
