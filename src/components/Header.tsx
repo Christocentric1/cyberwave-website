@@ -26,7 +26,7 @@ const Header = () => {
               <div className="absolute inset-0 bg-primary/30 blur-2xl group-hover:bg-accent/30 transition-all duration-300" />
             </div>
             <span className="text-xl font-bold tracking-tight gradient-text">
-              Cyberwave Security
+              Cyberwave Security Ltd
             </span>
           </Link>
 
