@@ -125,7 +125,7 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           className="border-border/50"
-                          placeholder="John Doe"
+                          placeholder=""
                         />
                       </div>
 
@@ -141,7 +141,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           className="border-border/50"
-                          placeholder="john@company.com"
+                          placeholder=""
                         />
                       </div>
                     </div>
@@ -156,7 +156,7 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         className="border-border/50"
-                        placeholder="Your Company Ltd"
+                        placeholder=""
                       />
                     </div>
 
@@ -171,7 +171,7 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         className="border-border/50 min-h-[150px]"
-                        placeholder="Tell us about your security requirements..."
+                        placeholder=""
                       />
                     </div>
 
