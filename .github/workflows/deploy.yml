@@ -1,0 +1,35 @@
+name: Build and Deploy to cPanel (FTP)
+on:
+  push:
+    branches: [ main ]
+concurrency:
+  group: deploy-cpanel
+  cancel-in-progress: true
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: error
+          retention-days: 7
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          protocol: ftp
+          port: 21
+          server-dir: ${{ secrets.CPANEL_PATH }}
+          local-dir: dist
+          dangerous-clean-slate: true
