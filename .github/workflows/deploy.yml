@@ -1,27 +1,50 @@
 name: Build and Deploy to cPanel (FTP)
+
 on:
   push:
     branches: [ main ]
+
 concurrency:
   group: deploy-cpanel
   cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20.x (with npm cache)
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-artifact@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artefact
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
           if-no-files-found: error
           retention-days: 7
+
+      # ✅ Verify secrets exist before attempting deployment
+      - name: Verify required secrets exist
+        run: |
+          [ -z "${{ secrets.CPANEL_HOST }}" ] && echo "❌ Missing CPANEL_HOST" && exit 1 || echo "✅ CPANEL_HOST found"
+          [ -z "${{ secrets.CPANEL_USERNAME }}" ] && echo "❌ Missing CPANEL_USERNAME" && exit 1 || echo "✅ CPANEL_USERNAME found"
+          [ -z "${{ secrets.CPANEL_PASSWORD }}" ] && echo "❌ Missing CPANEL_PASSWORD" && exit 1 || echo "✅ CPANEL_PASSWORD found"
+          [ -z "${{ secrets.CPANEL_PATH }}" ] && echo "❌ Missing CPANEL_PATH" && exit 1 || echo "✅ CPANEL_PATH found"
+
+      # ✅ Deploy built files to GoDaddy via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -30,6 +53,6 @@ jobs:
           password: ${{ secrets.CPANEL_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: ${{ secrets.CPANEL_PATH }}
           local-dir: dist
+          server-dir: ${{ secrets.CPANEL_PATH }}
           dangerous-clean-slate: true
