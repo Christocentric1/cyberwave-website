@@ -1,4 +1,4 @@
-name: Build and Deploy to cPanel (FTP)
+name: Build and Deploy to cPanel Godaddy(FTP)
 
 on:
   push:
