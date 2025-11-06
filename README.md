@@ -1,2 +1,4 @@
-# cyberwave-website
-Cyberwave Security Ltd — a UK-based cybersecurity company specialising in Endpoint Detection &amp; Response (EDR) and Network Defence. This site showcases our services in proactive cyber threat detection, network monitoring, and incident response.
+# Cyberwave Website
+Cyberwave Security Ltd is a global cybersecurity company dedicated to delivering advanced Cybersecurity Solutions, including Endpoint Detection & Response (EDR), Network Defence, and Cloud Security.
+
+This website showcases our core services in proactive cyber threat detection, network monitoring, and incident response, reflecting our commitment to protecting organisations through innovation, intelligence, and resilience.
