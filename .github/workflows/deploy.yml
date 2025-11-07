@@ -4,7 +4,6 @@ on:
   push:
     branches: [ main ]
 
-# avoid overlapping deploys
 concurrency:
   group: deploy-godaddy
   cancel-in-progress: true
@@ -32,7 +31,7 @@ jobs:
       # Ensure the private key exists before trying to deploy
       - name: Verify SSH private key secret
         run: |
-          [ -z "${{ secrets.PRIVATEKEY }}" ] && echo "❌ Missing SSH_PRIVATE_KEY" && exit 1 || echo "✅ SSH_PRIVATE_KEY found"
+          [ -z "${{ secrets.PRIVATEKEY }}" ] && echo "❌ Missing PRIVATEKEY secret" && exit 1 || echo "✅ PRIVATEKEY found"
 
       # ---- DEPLOY ----
       - name: Deploy via SCP (GoDaddy)
@@ -40,8 +39,8 @@ jobs:
         with:
           local: dist
           remote: /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
-          ssh_host: 107.180.115.245
-          ssh_user: gxdt533csjp9
+          host: 107.180.115.245              # <-- correct input key
+          username: gxdt533csjp9             # <-- correct input key
           privateKey: ${{ secrets.PRIVATEKEY }}
           port: 22
 
@@ -49,13 +48,12 @@ jobs:
       - name: Verify deployment via SSH
         uses: appleboy/ssh-action@master
         with:
-          ssh_host: 107.180.115.245
-          ssh_user: gxdt533csjp9
-          privatekey: ${{ secrets.PRIVATEKEY }}
+          host: 107.180.115.245              # <-- correct input key
+          username: gxdt533csjp9             # <-- correct input key
+          key: ${{ secrets.PRIVATEKEY }}     # <-- correct input key
           port: 22
           script: |
             cd /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
             echo "PWD: $(pwd)"
-            echo "Listing uploaded files:"
             ls -la
             echo "✅ Deployment verified successfully"
