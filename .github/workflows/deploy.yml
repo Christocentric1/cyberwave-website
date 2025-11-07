@@ -1,11 +1,11 @@
-name: Build and Deploy to cPanel Godaddy (FTP)
+name: Build and Deploy to GoDaddy via SSH
 
 on:
   push:
     branches: [ main ]
 
 concurrency:
-  group: deploy-cpanel
+  group: deploy-godaddy
   cancel-in-progress: true
 
 jobs:
@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js 20.x (with npm cache)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -36,19 +36,13 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      # ✅ Only check the password secret we actually use
-      - name: Verify password secret exists
-        run: |
-          [ -z "${{ secrets.CPANEL_PASSWORD }}" ] && echo "❌ Missing CPANEL_PASSWORD" && exit 1 || echo "✅ CPANEL_PASSWORD found"
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      # ✅ Deploy only the built files using SCP over SSH
+      - name: Deploy via SCP
+        uses: appleboy/scp-action@master
         with:
-          server: ftp.cyberwavesecurity.co.uk
-          username: contact@cyberwavesecurity.co.uk
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          protocol: ftp
-          port: 21
-          local-dir: dist
-          server-dir: /        # jailed FTP user's root already points to .../contact
-          dangerous-clean-slate: true
+          host: ${{ secrets.GODADDY_SSH_HOST }}
+          username: ${{ secrets.GODADDY_SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: "dist/*"
+          target: "/home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact"
