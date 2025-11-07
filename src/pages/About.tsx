@@ -139,10 +139,10 @@ const About = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold mb-3 text-primary">UK-Based Support</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-primary">Global Support</h3>
                   <p className="text-muted-foreground">
-                    As a UK-based provider, we understand local compliance requirements and offer support during 
-                    UK business hours with on-call emergency response available 24/7.
+                    As a global cyber security provider, we understand local compliance requirements and offer support during 
+                     business hours with on-call emergency response available 24/7.
                   </p>
                 </div>
               </CardContent>
