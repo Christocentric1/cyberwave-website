@@ -43,6 +43,7 @@ jobs:
           host: 107.180.115.245
           username: gxdt533csjp9
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: 22
 
       # ---- VERIFY (optional but recommended) ----
@@ -52,6 +53,7 @@ jobs:
           host: 107.180.115.245
           username: gxdt533csjp9
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: 22
           script: |
             cd /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
