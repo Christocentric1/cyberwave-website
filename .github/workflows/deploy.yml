@@ -1,9 +1,10 @@
-name: Build and Deploy to GoDaddy via SSH
+name: Build and Deploy to GoDaddy (SCP + SSH verify)
 
 on:
   push:
     branches: [ main ]
 
+# avoid overlapping deploys
 concurrency:
   group: deploy-godaddy
   cancel-in-progress: true
@@ -28,21 +29,33 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload build artefact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist
-          if-no-files-found: error
-          retention-days: 7
+      # Ensure the private key exists before trying to deploy
+      - name: Verify SSH private key secret
+        run: |
+          [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ] && echo "❌ Missing SSH_PRIVATE_KEY" && exit 1 || echo "✅ SSH_PRIVATE_KEY found"
 
-      # ✅ Deploy only the built files using SCP over SSH
-      - name: Deploy via SCP
-        uses: appleboy/scp-action@master
+      # ---- DEPLOY ----
+      - name: Deploy via SCP (GoDaddy)
+        uses: garygrossgarten/github-action-scp@release
         with:
-          host: ${{ secrets.GODADDY_SSH_HOST }}
-          username: ${{ secrets.GODADDY_SSH_USERNAME }}
+          local: dist
+          remote: /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
+          host: 107.180.115.245
+          username: gxdt533csjp9
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+
+      # ---- VERIFY (optional but recommended) ----
+      - name: Verify deployment via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: 107.180.115.245
+          username: gxdt533csjp9
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "dist/*"
-          target: "/home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact"
+          script: |
+            cd /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
+            echo "PWD: $(pwd)"
+            echo "Listing uploaded files:"
+            ls -la
+            echo "✅ Deployment verified successfully"
