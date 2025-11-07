@@ -1,4 +1,4 @@
-name: Build and Deploy to cPanel Godaddy (FTP)
+name: Build and Deploy to cPanel (FTP)
 
 on:
   push:
@@ -36,23 +36,19 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      # ✅ Verify secrets exist before attempting deployment
-      - name: Verify required secrets exist
+      # ✅ Only check the password secret we actually use
+      - name: Verify password secret exists
         run: |
-          [ -z "${{ secrets.CPANEL_HOST }}" ] && echo "❌ Missing CPANEL_HOST" && exit 1 || echo "✅ CPANEL_HOST found"
-          [ -z "${{ secrets.CPANEL_USERNAME }}" ] && echo "❌ Missing CPANEL_USERNAME" && exit 1 || echo "✅ CPANEL_USERNAME found"
           [ -z "${{ secrets.CPANEL_PASSWORD }}" ] && echo "❌ Missing CPANEL_PASSWORD" && exit 1 || echo "✅ CPANEL_PASSWORD found"
-          [ -z "${{ secrets.CPANEL_PATH }}" ] && echo "❌ Missing CPANEL_PATH" && exit 1 || echo "✅ CPANEL_PATH found"
 
-      # ✅ Deploy built files to GoDaddy via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USERNAME }}
+          server: ftp.cyberwavesecurity.co.uk
+          username: contact@cyberwavesecurity.co.uk
           password: ${{ secrets.CPANEL_PASSWORD }}
           protocol: ftp
           port: 21
           local-dir: dist
-          server-dir: ${{ secrets.CPANEL_PATH }}
+          server-dir: /        # jailed FTP user's root already points to .../contact
           dangerous-clean-slate: true
