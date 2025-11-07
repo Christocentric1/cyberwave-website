@@ -40,20 +40,18 @@ jobs:
         with:
           local: dist
           remote: /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
-          host: 107.180.115.245
-          username: gxdt533csjp9
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          ssh_host: 107.180.115.245
+          ssh_user: gxdt533csjp9
+          privateKey: ${{ secrets.PRIVATEKEY }}
           port: 22
 
       # ---- VERIFY (optional but recommended) ----
       - name: Verify deployment via SSH
         uses: appleboy/ssh-action@master
         with:
-          host: 107.180.115.245
-          username: gxdt533csjp9
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          ssh_host: 107.180.115.245
+          ssh_user: gxdt533csjp9
+          privatekey: ${{ secrets.PRIVATEKEY }}
           port: 22
           script: |
             cd /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
