@@ -53,7 +53,7 @@ jobs:
           key: ${{ secrets.PRIVATEKEY }}     # <-- correct input key
           port: 22
           script: |
-            cd /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
+            cd /home/gxdt533csjp9/public_html/assets
             echo "PWD: $(pwd)"
             ls -la
             echo "✅ Deployment verified successfully"
