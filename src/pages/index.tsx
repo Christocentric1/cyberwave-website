@@ -177,7 +177,7 @@ const Index = () => {
               </Link>
               <Link to="/pricing">
                 <Button size="lg" variant="outline" className="border-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary text-xl px-10 py-7 font-semibold glass">
-                  View Pricing Note
+                  View Pricing
                 </Button>
               </Link>
             </div>
