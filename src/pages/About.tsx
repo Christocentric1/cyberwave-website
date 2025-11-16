@@ -165,12 +165,12 @@ const About = () => {
               Let's discuss how we can protect your organisation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/contact">
+              <Link to="/contact" replace preventScrollReset={true}>
                 <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-lg px-8">
                   Contact Us
                 </Button>
               </Link>
-              <Link to="/pricing">
+              <Link to="/pricing" replace preventScrollReset={true}>
                 <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 text-lg px-8">
                   View Pricing
                 </Button>

@@ -76,13 +76,13 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Link to="/contact">
+              <Link to="/contact" replace preventScrollReset={true}>
                 <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 text-lg px-10 py-7 font-bold cyber-glow shadow-2xl">
                   Get Free Security Assessment
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>
               </Link>
-              <Link to="/edr">
+              <Link to="/edr" replace preventScrollReset={true}>
                 <Button size="lg" variant="outline" className="border-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary text-lg px-10 py-7 font-semibold backdrop-blur-sm glass">
                   View Solutions
                 </Button>
@@ -140,7 +140,7 @@ const Index = () => {
                     <h3 className="text-2xl font-bold tracking-tight">{solution.title}</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">{solution.description}</p>
                     {solution.link && (
-                      <Link to={solution.link}>
+                      <Link to={solution.link} replace preventScrollReset={true}>
                         <Button variant="link" className="text-primary hover:text-accent p-0 h-auto font-semibold text-lg group/link">
                           Learn More <ArrowRight className="ml-2 h-5 w-5 group-hover/link:translate-x-1 transition-transform" />
                         </Button>
@@ -170,14 +170,14 @@ const Index = () => {
               Get started with a comprehensive security assessment today
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-6">
-              <Link to="/contact">
+              <Link to="/contact" replace preventScrollReset={true}>
                 <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 text-xl px-10 py-7 font-bold cyber-glow">
                   Contact Us
                 </Button>
               </Link>
               <Link to="/pricing">
                 <Button size="lg" variant="outline" className="border-2 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary text-xl px-10 py-7 font-semibold glass">
-                  View Pricing
+                  View Pricing Note
                 </Button>
               </Link>
             </div>

@@ -221,12 +221,12 @@ const EDR = () => {
               Start protecting your endpoints today with transparent pricing at just $1 per endpoint
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/pricing">
+              <Link to="/pricing" replace preventScrollReset={true}>
                 <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-lg px-8">
-                  View Pricing
+                  View Pricing Note
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact" replace preventScrollReset={true}>
                 <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 text-lg px-8">
                   Contact Sales
                 </Button>

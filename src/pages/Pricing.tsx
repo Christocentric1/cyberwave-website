@@ -107,7 +107,7 @@ const Pricing = () => {
                   <div className="p-6 rounded-lg border border-border/50 bg-background space-y-2">
                     <p className="text-sm text-muted-foreground">Monthly Cost</p>
                     <p className="text-4xl font-bold text-primary">
-                      ${monthlyTotal.toLocaleString()}
+                      £{monthlyTotal.toLocaleString()}
                     </p>
                     <p className="text-sm text-muted-foreground">
                       {endpoints} endpoints × £1/month
@@ -131,7 +131,7 @@ const Pricing = () => {
                 </div>
 
                 <div className="text-center pt-4">
-                  <Link to="/contact">
+                  <Link to="/contact" replace preventScrollReset={true}>
                     <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-lg px-8">
                       Get Started
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -198,7 +198,7 @@ const Pricing = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/contact">
+            <Link to="/contact"replace preventScrollReset={true}>
               <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
                 Discuss Custom Requirements
               </Button>
@@ -263,12 +263,13 @@ const Pricing = () => {
             <p className="text-lg text-muted-foreground">
               Get started with transparent, predictable pricing
             </p>
-            <Link to="/contact">
+            <Link to="/contact" replace preventScrollReset={true}>
               <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-lg px-8">
                 Contact Sales Team
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+
           </div>
         </div>
       </section>
