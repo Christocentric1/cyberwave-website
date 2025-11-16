@@ -96,7 +96,7 @@ const EDR = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link to="/pricing">
                   <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity cyber-glow">
-                    View Pricing - $1/endpoint
+                    View Pricing - £1/endpoint
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -218,15 +218,15 @@ const EDR = () => {
               Ready to Deploy Enterprise EDR?
             </h2>
             <p className="text-lg text-muted-foreground">
-              Start protecting your endpoints today with transparent pricing at just $1 per endpoint
+              Start protecting your endpoints today with transparent pricing at just £1 per endpoint
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/pricing" replace preventScrollReset={true}>
+              <Link to="/pricing">
                 <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-lg px-8">
                   View Pricing Note
                 </Button>
               </Link>
-              <Link to="/contact" replace preventScrollReset={true}>
+              <Link to="/contact">
                 <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 text-lg px-8">
                   Contact Sales
                 </Button>

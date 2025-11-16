@@ -9,6 +9,7 @@ import Pricing from "./pages/Pricing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { ScrollToTop } from "./ScrollToTop"; // 👈 add this
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* 👇 this runs on every route change and forces scroll to top */}
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/edr" element={<EDR />} />
@@ -33,3 +36,4 @@ const App = () => (
 );
 
 export default App;
+
