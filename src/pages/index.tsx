@@ -33,7 +33,7 @@ const Index = () => {
     "Proactive Detection: Identify and stop attacks before they spread",
     "EDR Expertise: Advanced endpoint visibility using industry-leading tools",
     "Network Security Excellence: Comprehensive monitoring and prevention",
-    "UK-Based Specialists: Professional certified analysts you can trust",
+    "Cloud Security: End-to-end protection for cloud workloads, data, and identities across multi-cloud environments",
   ];
 
   return (

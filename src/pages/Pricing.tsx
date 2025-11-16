@@ -64,7 +64,7 @@ const Pricing = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold">
-              EDR Pricing: <span className="text-primary">$1 per Endpoint</span>
+              EDR Pricing: <span className="text-primary">£1 per Endpoint</span>
             </h1>
             
             <p className="text-lg text-muted-foreground">
@@ -110,7 +110,7 @@ const Pricing = () => {
                       ${monthlyTotal.toLocaleString()}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {endpoints} endpoints × $1/month
+                      {endpoints} endpoints × £1/month
                     </p>
                   </div>
 
@@ -122,10 +122,10 @@ const Pricing = () => {
                       </span>
                     </div>
                     <p className="text-4xl font-bold text-accent">
-                      ${annualPrice.toLocaleString()}
+                      £{annualPrice.toLocaleString()}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Save ${annualDiscount.toLocaleString()} per year
+                      Save £{annualDiscount.toLocaleString()} per year
                     </p>
                   </div>
                 </div>

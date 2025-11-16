@@ -44,7 +44,7 @@ const About = () => {
               About <span className="text-primary">Cyberwave Security</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              To make cybersecurity accessible, affordable, and effective for all organisations, regardless of size or funding capacity.
+              Cyberwave Security Ltd is a non-for-profit organisation dedicated to providing accessible, affordable, and effective cybersecurity support to organisations of all sizes, with a focus on helping those with limited resources strengthen their security and resilience.
             </p>
           </div>
         </div>
