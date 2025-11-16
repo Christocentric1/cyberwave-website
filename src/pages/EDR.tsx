@@ -162,7 +162,7 @@ const EDR = () => {
               How <span className="text-accent">Cyberwave EDR</span> Works
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We combine leading EDR technology with UK-based security experts
+              We combine leading EDR technology with global security experts
               to give you continuous protection and clear outcomes.
             </p>
           </div>
