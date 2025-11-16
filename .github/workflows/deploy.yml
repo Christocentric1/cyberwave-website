@@ -38,7 +38,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist
-          remote: /home/gxdt533csjp9/public_html/cyberwavesecurity.co.uk/contact
+          remote: /home/gxdt533csjp9/public_html/
           host: 107.180.115.245              # <-- correct input key
           username: gxdt533csjp9             # <-- correct input key
           privateKey: ${{ secrets.PRIVATEKEY }}
