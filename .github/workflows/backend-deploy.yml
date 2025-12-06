@@ -1,0 +1,57 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-deploy.yml'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Deploy to IONOS via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            # Navigate to backend directory
+            cd /var/www/vhosts/cyberwavesecurity.co.uk/api
+
+            # Pull latest changes
+            git pull origin main
+
+            # Navigate to backend folder
+            cd backend
+
+            # Install dependencies
+            npm install --production
+
+            # Restart PM2 service
+            pm2 restart cyberwave-api || pm2 start src/server.js --name cyberwave-api
+
+            # Save PM2 configuration
+            pm2 save
+
+            # Show status
+            pm2 status cyberwave-api
+
+      - name: Deployment Summary
+        run: |
+          echo "✅ Backend deployed successfully!"
+          echo "🚀 API: https://api.cyberwavesecurity.co.uk"
