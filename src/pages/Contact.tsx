@@ -99,11 +99,11 @@ const Contact = () => {
                     <div className="absolute inset-0 bg-primary/20 blur-xl" />
                   </div>
                   <h3 className="font-semibold">Email Us</h3>
-                  <a 
-                    href="mailto:info@cyberwavesecurity.co.uk" 
+                  <a
+                    href="mailto:contact@cyberwavesecurity.org"
                     className="text-muted-foreground hover:text-primary transition-colors block"
                   >
-                    info@cyberwavesecurity.co.uk
+                    contact@cyberwavesecurity.org
                   </a>
                 </CardContent>
               </Card>
